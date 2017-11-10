@@ -7,6 +7,7 @@ import org.endeavourhealth.healthdashboard.models.TickerDataSeries;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class TickerLogic {
     public List<Ticker> getTickers() {
@@ -34,18 +35,23 @@ public class TickerLogic {
     }
 
     public TickerData getTickerData(int tickerId) {
+        Random rand = new Random();
+
         return new TickerData()
             .setxAxis(Arrays.asList("2010", "2011", "2012", "2013", "2014"))
             .setSeries(Arrays.asList(
                 new TickerDataSeries()
-                    .setChartType("line")
+                    .setType("column")
                     .setName("Legend 1")
-                    .setData(Arrays.asList(1, 2, 3, 4, 5)),
+                    .setData(Arrays.asList(rand.nextInt(500), rand.nextInt(500), rand.nextInt(500), rand.nextInt(500), rand.nextInt(500))),
                 new TickerDataSeries()
-                    .setChartType("line")
+                    .setType("line")
                     .setName("Legend 2")
-                    .setData(Arrays.asList(10, 9, 8, 7, 6))
-
+                    .setData(Arrays.asList(rand.nextInt(500), rand.nextInt(500), rand.nextInt(500), rand.nextInt(500), rand.nextInt(500))),
+                new TickerDataSeries()
+                    .setType("spline")
+                    .setName("Legend 3")
+                    .setData(Arrays.asList(rand.nextInt(500), rand.nextInt(500), rand.nextInt(500), rand.nextInt(500), rand.nextInt(500)))
             ));
     }
 }

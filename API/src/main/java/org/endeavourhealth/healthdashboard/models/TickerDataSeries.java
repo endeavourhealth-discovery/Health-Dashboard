@@ -5,7 +5,7 @@ import java.util.List;
 
 public class TickerDataSeries {
     private String name;
-    private String chartType;
+    private String type;
     private List<Integer> data = new ArrayList<>();
 
     public String getName() {
@@ -17,12 +17,12 @@ public class TickerDataSeries {
         return this;
     }
 
-    public String getChartType() {
-        return chartType;
+    public String getType() {
+        return type;
     }
 
-    public TickerDataSeries setChartType(String chartType) {
-        this.chartType = chartType;
+    public TickerDataSeries setType(String type) {
+        this.type = type;
         return this;
     }
 

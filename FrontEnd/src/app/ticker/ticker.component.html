@@ -2,16 +2,10 @@
   <div class="module-heading">Health Tickers</div>
   <div class="module-body">
     <div class="row">
-      <div *ngFor="let ticker of tickers" class="col-md-4">
-        <div class="card">
-          <div class="card-header">{{ticker.title}} - ({{ticker.refresh}} mins)</div>
-          <div class="card-block">
-            Magic chart stuffs
-            <loadingIndicator [done]="ticker.chart">
-              <div [chart]="ticker.chart"></div>
-            </loadingIndicator>
-          </div>
-        </div>
+      <div *ngFor="let ticker of tickers" class="col-md-6" style="height: 400px">
+        <loadingIndicator [done]="ticker.chart">
+          <div [chart]="ticker.chart"></div>
+        </loadingIndicator>
       </div>
     </div>
   </div>

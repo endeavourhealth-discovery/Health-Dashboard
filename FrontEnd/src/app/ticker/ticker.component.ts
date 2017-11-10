@@ -52,7 +52,11 @@ export class TickerComponent implements OnInit {
   buildChart(ticker: Ticker, chartData: any) {
     ticker.chart = new Chart({
       title: { text: ticker.title },
-      series: chartData.series
+      chart: { animation: false },
+      credits: { enabled: false },
+      plotOptions: { series: { animation: false }},
+      series: chartData.series,
+      xAxis: {categories: chartData.xAxis}
     });
   }
 }
