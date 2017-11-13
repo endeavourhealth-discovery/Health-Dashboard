@@ -47,7 +47,7 @@ public class ChartEndpoint {
     @Path("/data")
     @ApiOperation(value = "Returns chart data for a chart")
     public Response getChartData(@Context SecurityContext sc,
-                                 @ApiParam(value = "Mandatory chart id") @QueryParam("chart") int chartId) throws Exception {
+                                 @ApiParam(value = "Mandatory chart id") @QueryParam("chartId") int chartId) throws Exception {
 
         ChartData chartData = new ChartLogic().getChartData(chartId);
 

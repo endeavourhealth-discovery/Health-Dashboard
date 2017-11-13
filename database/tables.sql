@@ -5,3 +5,11 @@ CREATE TABLE health_dashboard.charts
   refresh INT NOT NULL,
   PRIMARY KEY (id)
 );
+
+CREATE TABLE health_dashboard.chart_definition
+(
+  id INT NOT NULL,
+  connection VARCHAR(255) NOT NULL,
+  query VARCHAR(4096) NOT NULL,
+  PRIMARY KEY (id)
+);

@@ -5,6 +5,7 @@ import org.endeavourhealth.common.config.ConfigManager;
 import org.endeavourhealth.coreui.framework.ContextShutdownHook;
 import org.endeavourhealth.coreui.framework.StartupConfig;
 import org.endeavourhealth.healthdashboard.models.Chart;
+import org.endeavourhealth.healthdashboard.models.ChartDefinition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,7 +19,7 @@ public class ChartDal implements ContextShutdownHook {
     private Connection _connection = null;
 
     public ChartDal() {
-        StartupConfig.registerShutdownHook("PersonPatientDAL_Jdbc", this);
+        StartupConfig.registerShutdownHook("ChartDal", this);
     }
 
     public List<Chart> getCharts() {
@@ -26,21 +27,41 @@ public class ChartDal implements ContextShutdownHook {
         Connection connection = getConnection();
         try {
             PreparedStatement statement = connection.prepareStatement("SELECT id, title, refresh FROM charts");
-            ResultSet rs = statement.executeQuery();
-
-            while (rs.next()) {
-                result.add(
-                    new Chart()
-                    .setId(rs.getInt("id"))
-                    .setTitle(rs.getString("title"))
-                    .setRefresh(rs.getInt("refresh"))
-                );
+            try (ResultSet rs = statement.executeQuery()) {
+                while (rs.next()) {
+                    result.add(
+                        new Chart()
+                            .setId(rs.getInt("id"))
+                            .setTitle(rs.getString("title"))
+                            .setRefresh(rs.getInt("refresh"))
+                    );
+                }
             }
         } catch (Exception e) {
             LOG.error("Error fetching charts", e);
         }
 
         return result;
+    }
+
+    public ChartDefinition getDefinition(int chartId) {
+        Connection connection = getConnection();
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT id, connection, query FROM chart_definition WHERE id = ?");
+            statement.setInt(1, chartId);
+            try (ResultSet rs = statement.executeQuery()) {
+                if (!rs.next())
+                    return null;
+
+                return new ChartDefinition()
+                    .setId(rs.getInt("id"))
+                    .setConnection(rs.getString("connection"))
+                    .setQuery(rs.getString("query"));
+            }
+        } catch (Exception e) {
+            LOG.error("Error fetching chart defintion " + chartId, e);
+        }
+        return null;
     }
 
     private Connection getConnection() {
