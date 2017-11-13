@@ -11,7 +11,7 @@ import {AbstractMenuProvider, LayoutModule, LoggerModule} from 'eds-angular4';
 import {LayoutComponent} from 'eds-angular4/dist/layout/layout.component';
 import {ToastModule} from 'ng2-toastr/ng2-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {TickerModule} from './ticker/ticker.module';
+import {HDChartModule} from './hdchart/hdchart.module';
 import {HIGHCHARTS_MODULES} from 'angular-highcharts';
 import exporting from 'highcharts/modules/exporting.src';
 
@@ -28,7 +28,7 @@ export function highchartsModules() {
     LayoutModule,
     LoggerModule,
 
-    TickerModule,
+    HDChartModule,
 
     RouterModule.forRoot(AppMenuService.getRoutes()),
     NgbModule.forRoot(),

@@ -3,7 +3,7 @@ package org.endeavourhealth.healthdashboard.models;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TickerDataSeries {
+public class ChartDataSeries {
     private String name;
     private String type;
     private List<Integer> data = new ArrayList<>();
@@ -12,7 +12,7 @@ public class TickerDataSeries {
         return name;
     }
 
-    public TickerDataSeries setName(String name) {
+    public ChartDataSeries setName(String name) {
         this.name = name;
         return this;
     }
@@ -21,7 +21,7 @@ public class TickerDataSeries {
         return type;
     }
 
-    public TickerDataSeries setType(String type) {
+    public ChartDataSeries setType(String type) {
         this.type = type;
         return this;
     }
@@ -30,7 +30,7 @@ public class TickerDataSeries {
         return data;
     }
 
-    public TickerDataSeries setData(List<Integer> data) {
+    public ChartDataSeries setData(List<Integer> data) {
         this.data = data;
         return this;
     }

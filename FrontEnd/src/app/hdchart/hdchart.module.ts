@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {TickerComponent} from './ticker.component';
-import {TickerService} from './ticker.service';
+import {HDChartComponent} from './hdchart.component';
+import {HDChartService} from './hdchart.service';
 import {ControlsModule} from 'eds-angular4';
 import {ChartModule} from 'angular-highcharts';
 
@@ -12,10 +12,10 @@ import {ChartModule} from 'angular-highcharts';
     ChartModule
   ],
   declarations: [
-    TickerComponent
+    HDChartComponent
   ],
   providers: [
-    TickerService
+    HDChartService
   ]
 })
-export class TickerModule { }
+export class HDChartModule { }

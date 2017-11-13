@@ -2,14 +2,14 @@ import {Injectable} from '@angular/core';
 import {MenuOption} from 'eds-angular4/dist/layout/models/MenuOption';
 import {AbstractMenuProvider} from 'eds-angular4';
 import {Routes} from '@angular/router';
-import {TickerComponent} from './ticker/ticker.component';
+import {HDChartComponent} from './hdchart/hdchart.component';
 
 @Injectable()
 export class AppMenuService implements  AbstractMenuProvider {
   static getRoutes(): Routes {
     return [
       { path: '', redirectTo : 'ticker', pathMatch: 'full' },
-      { path: 'ticker', component: TickerComponent }
+      { path: 'ticker', component: HDChartComponent }
     ]
   }
 

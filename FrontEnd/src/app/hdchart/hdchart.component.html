@@ -2,7 +2,7 @@
   <div class="module-heading">Health Tickers</div>
   <div class="module-body">
     <div class="row">
-      <div *ngFor="let ticker of tickers" class="col-md-6" style="height: 400px">
+      <div *ngFor="let ticker of hdCharts" class="col-md-6" style="height: 400px">
         <loadingIndicator [done]="ticker.chart">
           <div [chart]="ticker.chart"></div>
         </loadingIndicator>

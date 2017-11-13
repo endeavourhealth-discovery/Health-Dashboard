@@ -3,24 +3,24 @@ package org.endeavourhealth.healthdashboard.models;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TickerData {
+public class ChartData {
     private List<String> xAxis = new ArrayList<>();
-    private List<TickerDataSeries> series = new ArrayList<>();
+    private List<ChartDataSeries> series = new ArrayList<>();
 
     public List<String> getxAxis() {
         return xAxis;
     }
 
-    public TickerData setxAxis(List<String> xAxis) {
+    public ChartData setxAxis(List<String> xAxis) {
         this.xAxis = xAxis;
         return this;
     }
 
-    public List<TickerDataSeries> getSeries() {
+    public List<ChartDataSeries> getSeries() {
         return series;
     }
 
-    public TickerData setSeries(List<TickerDataSeries> series) {
+    public ChartData setSeries(List<ChartDataSeries> series) {
         this.series = series;
         return this;
     }

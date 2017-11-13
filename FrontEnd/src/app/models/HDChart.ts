@@ -1,7 +1,7 @@
 import {Observable} from 'rxjs/Observable';
 import {Chart} from 'angular-highcharts';
 
-export class Ticker {
+export class HDChart {
   id: number;
   title: string;
   refresh: number;

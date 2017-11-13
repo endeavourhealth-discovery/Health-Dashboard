@@ -1,6 +1,6 @@
 package org.endeavourhealth.healthdashboard.models;
 
-public class Ticker {
+public class Chart {
     int id;
     String title;
     int refresh;
@@ -9,7 +9,7 @@ public class Ticker {
         return id;
     }
 
-    public Ticker setId(int id) {
+    public Chart setId(int id) {
         this.id = id;
         return this;
     }
@@ -18,7 +18,7 @@ public class Ticker {
         return title;
     }
 
-    public Ticker setTitle(String title) {
+    public Chart setTitle(String title) {
         this.title = title;
         return this;
     }
@@ -27,7 +27,7 @@ public class Ticker {
         return refresh;
     }
 
-    public Ticker setRefresh(int refresh) {
+    public Chart setRefresh(int refresh) {
         this.refresh = refresh;
         return this;
     }
