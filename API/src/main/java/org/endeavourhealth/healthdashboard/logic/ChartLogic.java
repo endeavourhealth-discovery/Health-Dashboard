@@ -35,7 +35,7 @@ public class ChartLogic {
 
                 ChartData chartData = new ChartData();
                 ChartDataSeries chartDataSeries = null;
-                HashSet<String> categories = new HashSet<>();
+                LinkedHashSet<String> categories = new LinkedHashSet<>();
 
                 while (rs.next()) {
                     String type = rs.getString("type");
@@ -67,7 +67,6 @@ public class ChartLogic {
 
         return null;
     }
-
 
     private Connection createConnection(String connection) {
         try {
