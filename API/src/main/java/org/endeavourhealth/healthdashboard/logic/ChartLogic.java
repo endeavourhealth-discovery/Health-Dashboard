@@ -3,10 +3,7 @@ package org.endeavourhealth.healthdashboard.logic;
 import com.fasterxml.jackson.databind.JsonNode;
 import org.endeavourhealth.common.cache.ObjectMapperPool;
 import org.endeavourhealth.healthdashboard.dal.ChartDal;
-import org.endeavourhealth.healthdashboard.models.Chart;
-import org.endeavourhealth.healthdashboard.models.ChartData;
-import org.endeavourhealth.healthdashboard.models.ChartDataSeries;
-import org.endeavourhealth.healthdashboard.models.ChartDefinition;
+import org.endeavourhealth.healthdashboard.models.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -53,7 +50,10 @@ public class ChartLogic {
                     if (!categories.contains(category))
                         categories.add(category);
 
-                    chartDataSeries.getData().add(value);
+                    chartDataSeries.getData().add(
+                        new DataPoint()
+                            .setName(category)
+                            .setY(value));
                 }
                 chartData.setxAxis(new ArrayList<>(categories));
                 return chartData;

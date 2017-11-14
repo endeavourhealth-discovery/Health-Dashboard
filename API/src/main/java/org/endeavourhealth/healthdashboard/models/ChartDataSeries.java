@@ -6,7 +6,7 @@ import java.util.List;
 public class ChartDataSeries {
     private String name;
     private String type;
-    private List<Integer> data = new ArrayList<>();
+    private List<DataPoint> data = new ArrayList<>();
 
     public String getName() {
         return name;
@@ -26,11 +26,11 @@ public class ChartDataSeries {
         return this;
     }
 
-    public List<Integer> getData() {
+    public List<DataPoint> getData() {
         return data;
     }
 
-    public ChartDataSeries setData(List<Integer> data) {
+    public ChartDataSeries setData(List<DataPoint> data) {
         this.data = data;
         return this;
     }

@@ -56,7 +56,7 @@ export class HDChartComponent implements OnInit {
       credits: { enabled: false },
       plotOptions: { series: { animation: false }},
       series: chartData.series,
-      xAxis: {categories: chartData.xAxis}
+      xAxis: {categories: chartData.xAxis, type: 'category'}
     });
   }
 }
